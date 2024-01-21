@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #resultContainer {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="studentForm" onsubmit="calculateResults(); return false;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="subject1">Subject 1:</label>
+    <input type="number" id="subject1" name="subject1" required>
+
+    <label for="subject2">Subject 2:</label>
+    <input type="number" id="subject2" name="subject2" required>
+
+    <label for="subject3">Subject 3:</label>
+    <input type="number" id="subject3" name="subject3" required>
+
+    <input type="submit" value="Calculate Results">
+  </form>
+
+  <div id="resultContainer"></div>
+
+  <script>
+    function calculateResults() {
+      var name = document.getElementById('name').value;
+      var subject1 = parseFloat(document.getElementById('subject1').value);
+      var subject2 = parseFloat(document.getElementById('subject2').value);
+      var subject3 = parseFloat(document.getElementById('subject3').value);
+
+      // Calculate total, average, result, and grade
+      var totalMarks = subject1 + subject2 + subject3;
+      var averageMarks = totalMarks / 3;
+      var result = averageMarks >= 40 ? 'Pass' : 'Fail';
+      var grade = result === 'Pass' ? (averageMarks >= 80 ? 'A' : (averageMarks >= 60 ? 'B' : 'C')) : 'N/A';
+
+      // Display the results
+      var resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = `
+        <h2>Student Results</h2>
+        <p>Name: ${name}</p>
+        <p>Total Marks: ${totalMarks}</p>
+        <p>Average Marks: ${averageMarks.toFixed(2)}</p>
+        <p>Result: ${result}</p>
+        <p>Grade: ${grade}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

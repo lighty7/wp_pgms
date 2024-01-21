@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #resultContainer {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="employeeForm" onsubmit="calculateSalary(); return false;">
+    <label for="employeeName">Employee Name:</label>
+    <input type="text" id="employeeName" name="employeeName" required>
+
+    <label for="basicSalary">Basic Salary:</label>
+    <input type="number" id="basicSalary" name="basicSalary" required>
+
+    <input type="submit" value="Calculate Salary">
+  </form>
+
+  <div id="resultContainer"></div>
+
+  <script>
+    function calculateSalary() {
+      var employeeName = document.getElementById('employeeName').value;
+      var basicSalary = parseFloat(document.getElementById('basicSalary').value);
+
+      // Constants for allowances and deductions
+      var daPercentage = 0.2; // 20% of Basic Salary
+      var hraPercentage = 0.15; // 15% of Basic Salary
+      var pfPercentage = 0.1; // 10% of Basic Salary
+      var taxPercentage = 0.05; // 5% of Basic Salary
+
+      // Calculate allowances
+      var da = basicSalary * daPercentage;
+      var hra = basicSalary * hraPercentage;
+
+      // Calculate deductions
+      var pf = basicSalary * pfPercentage;
+      var tax = basicSalary * taxPercentage;
+
+      // Calculate Gross Pay, Deduction, and Net Pay
+      var grossPay = basicSalary + da + hra;
+      var deduction = pf + tax;
+      var netPay = grossPay - deduction;
+
+      // Display the results
+      var resultContainer = document.getElementById('resultContainer');
+      resultContainer.innerHTML = `
+        <h2>Employee Salary Details</h2>
+        <p>Employee Name: ${employeeName}</p>
+        <p>Basic Salary: ${basicSalary}</p>
+        <p>DA (Dearness Allowance): ${da.toFixed(2)}</p>
+        <p>HRA (House Rent Allowance): ${hra.toFixed(2)}</p>
+        <p>PF (Provident Fund): ${pf.toFixed(2)}</p>
+        <p>TAX: ${tax.toFixed(2)}</p>
+        <p>Gross Pay: ${grossPay.toFixed(2)}</p>
+        <p>Deduction: ${deduction.toFixed(2)}</p>
+        <p>Net Pay: ${netPay.toFixed(2)}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

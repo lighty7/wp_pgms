@@ -1,0 +1,26 @@
+CA-C25L: WEB PROGRAMMING LAB
+1. Create a form with the elements of Textboxes, Radio buttons, Checkboxes, and so on. Write JavaScript code to validate the format in email, and mobile number in 10 characters, If a textbox has been left empty, popup an alert indicating when email, mobile number and textbox has been left empty.
+2. Develop an HTML Form, which accepts any Mathematical expression. Write JavaScript code to Evaluate the expression and Display the result.
+3. Create a page with dynamic effects. Write the code to include layers and basic animation.
+4. Write a JavaScript code to find the sum of N natural Numbers. (Use user-defined function)
+5. Write a JavaScript code block using arrays and generate the current date in words, this should include the day, month and year.
+6. Create a form for Student information. Write JavaScript code to find Total, Average, Result and Grade.
+7. Create a form for Employee information. Write JavaScript code to find DA, HRA, PF, TAX, Gross pay, Deduction and Net pay.
+8. Write a program in PHP to change background color based on day of the week using if else if statements and using arrays .
+9. Write a simple program in PHP for i) generating Prime number ii) generate Fibonacci series.
+10. Write a PHP program to remove duplicates from a sorted list.
+11. Write a PHP Script to print the following pattern on the Screen:
+*****
+****
+***
+**
+*
+12. Write a simple program in PHP for Searching of data by different criteria
+13. Write a function in PHP to generate captcha code
+14. Write a Program to store and read image from Database.
+15. Write a program in PHP to read and write file using form control.
+16. Write a program in PHP to add, update and delete using student database.
+17. Write a program in PHP to Validate Input
+18. Write a program in PHP for setting and retrieving a cookie
+19. Write a PHP program to Create a simple webpage of a college.
+20. Write a program in PHP for exception handling for i) divide by zero ii) checking date format.

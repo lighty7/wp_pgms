@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Example</title>
+  <style>
+    .container {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    span {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+    <h2>Form Validation Example</h2>
+<div class="container">
+  
+
+  <form id="myForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <span>(e.g., example@example.com)</span>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="text" id="mobile" name="mobile">
+    <span>(10 digits)</span>
+
+    <label>Interests:</label>
+    <input type="checkbox" id="coding" name="interests" value="coding">
+    <label for="coding">Coding</label>
+    <input type="checkbox" id="gaming" name="interests" value="gaming">
+    <label for="gaming">Gaming</label>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var email = document.getElementById('email').value;
+      var mobile = document.getElementById('mobile').value;
+
+      // Check if any of the required fields are empty
+      if (!name || !gender || !email || !mobile) {
+        alert('Please fill in all the required fields.');
+        return false;
+      }
+
+      // Validate email format
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      // Validate mobile number length
+      if (mobile.length !== 10 || isNaN(mobile)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return false;
+      }
+
+      // Form is valid, continue with submission
+      return true;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Date in Words</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #dateContainer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dateContainer">
+    <h1>Current Date</h1>
+    <p id="currentDate"></p>
+  </div>
+
+  <script>
+    // Get the current date
+    var currentDate = new Date();
+
+    // Define arrays for days and months
+    var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    // Get the day, month, and year
+    var day = daysOfWeek[currentDate.getDay()];
+    var month = monthsOfYear[currentDate.getMonth()];
+    var year = currentDate.getFullYear();
+
+    // Display the current date in words
+    document.getElementById('currentDate').innerHTML = day + ', ' + month + ' ' + currentDate.getDate() + ', ' + year;
+  </script>
+
+</body>
+</html>

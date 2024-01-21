@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum of N Natural Numbers</title>
+</head>
+<body>
+
+  <div id="resultContainer">
+    <h2>Sum of N Natural Numbers</h2>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    // Function to calculate the sum of N natural numbers
+    function sumOfNNumbers(n) {
+      if (n < 0) {
+        return 'Invalid input. Please enter a positive integer.';
+      }
+
+      let sum = 0;
+      for (let i = 1; i <= n; i++) {
+        sum += i;
+      }
+      return sum;
+    }
+
+    // Example: Calculate the sum of the first 5 natural numbers
+    var n = 99;
+    var result = sumOfNNumbers(n);
+
+    // Display the result in HTML
+    document.getElementById('result').innerHTML = 'Sum of the first ' + n + ' natural numbers is: ' + result;
+  </script>
+
+</body>
+</html>
