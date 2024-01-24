@@ -1,3 +1,4 @@
+// for 14
 CREATE DATABASE IF NOT EXISTS image_database;
 USE image_database;
 
@@ -6,3 +7,23 @@ CREATE TABLE IF NOT EXISTS images (
     image_name VARCHAR(255) NOT NULL,
     image_data LONGBLOB NOT NULL
 );
+// for 16
+-- Create the database
+CREATE DATABASE IF NOT EXISTS your_actual_dbname;
+
+-- Use the database
+USE your_actual_dbname;
+
+-- Create the 'students' table
+CREATE TABLE IF NOT EXISTS students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    grade VARCHAR(1) NOT NULL
+);
+
+-- Insert sample data (optional)
+INSERT INTO students (name, age, grade) VALUES
+    ('John Doe', 20, 'A'),
+    ('Jane Smith', 22, 'B'),
+    ('Bob Johnson', 21, 'C');
